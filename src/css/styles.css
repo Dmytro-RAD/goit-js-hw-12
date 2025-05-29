@@ -23,6 +23,7 @@ ul {
   color: red;
   overflow: hidden;
 }
+
 .loader::before {
   content: '';
   background: red;
@@ -33,6 +34,7 @@ ul {
   height: 100%;
   animation: loading 10s linear infinite;
 }
+
 .loader:after {
   content: '';
   position: absolute;
@@ -50,6 +52,26 @@ ul {
 
 .loader[hidden] {
   display: none !important;
+}
+
+.loadbtn {
+  display: block;
+  border: none;
+  margin: 32px auto 44px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 125px;
+  height: 40px;
+  background-color: #4e75ff;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+
+.loadbtn[hidden] {
+  display: none;
 }
 
 @keyframes loading {

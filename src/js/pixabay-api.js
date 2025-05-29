@@ -8,13 +8,20 @@ const instance = axios.create({
     image_type: 'photo',
     orientation: 'horizontal',
     safesearch: 'true',
+    per_page: 15,
   },
 });
 
-export default function getImagesByQuery(query) {
-  return instance
-    .get('', {
-      params: { q: query },
-    })
-    .then(res => res.data);
+export default async function getImagesByQuery(query, page = 1) {
+  try {
+    const res = await instance.get('', {
+      params: {
+        q: query,
+        page,
+      },
+    });
+    return res.data;
+  } catch (error) {
+    throw new Error('Failed to fetch images: ' + error.message);
+  }
 }
